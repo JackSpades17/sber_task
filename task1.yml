@@ -1,0 +1,27 @@
+---
+- name: Download and Start Jenkins
+  hosts: localhost
+  tasks:
+    - name: wget 
+      dnf:
+	      name: wget
+        state: present
+
+    - name: Pre Download
+      shell: wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo && rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key && dnf upgrade
+
+    - name: Download Java
+      dnf:
+	      name: java-17-openjdk
+        state: present
+
+    - name: Download Jenkins
+      dnf:
+	      name: jenkins
+        state: present
+
+    - name: Start Jenkins
+      systemd_service:
+        name: jenkins
+        state: started
+  become: true
