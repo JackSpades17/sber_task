@@ -4,7 +4,9 @@
   tasks:
     - name: wget 
       dnf:
-	      name: wget
+	      name: 
+          - wget
+          - git
         state: present
 
     - name: Pre Download

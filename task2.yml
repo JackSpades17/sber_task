@@ -4,10 +4,7 @@
   tasks:
     - name: packs
       dnf:
-	      name: 
-          - htop
-          - tmux
-          - jq
+	      name: htop
         state: present
 
     - name: Disable Root Login
