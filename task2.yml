@@ -1,0 +1,30 @@
+---
+- name: Download and Start sshd
+  hosts: task2
+  tasks:
+    - name: packs
+      dnf:
+	      name: 
+          - htop
+          - tmux
+          - jq
+        state: present
+
+    - name: Disable Root Login
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^PermitRootLogin'
+        line: 'PermitRootLogin no'
+        state: present
+
+    - name: Enanle Login SSH Keys
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^PasswordAuthentication'
+        line: 'PasswordAuthentication no'S
+        state: present
+    - name: Restart SSH
+      systemd_service:
+        name: sshd
+        state: restarted
+  become: true
