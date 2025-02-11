@@ -18,7 +18,7 @@
       lineinfile:
         dest: /etc/ssh/sshd_config
         regexp: '^PasswordAuthentication'
-        line: 'PasswordAuthentication no'S
+        line: 'PasswordAuthentication no'
         state: present
     - name: Restart SSH
       systemd_service:
