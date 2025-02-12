@@ -2,4 +2,4 @@
 127.0.0.1 ansible_connection=local
 
 [task2]
-89.169.131.62 ansible_connection=ssh ansible_user=jackspades17 ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+51.250.91.47 ansible_connection=ssh ansible_user=jackspades17 ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
