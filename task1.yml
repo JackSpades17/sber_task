@@ -4,7 +4,7 @@
   tasks:
     - name: Download Java + wget 
       dnf:
-	      name: 
+	name: 
           - wget
           - java-17-openjdk
         state: present
@@ -14,7 +14,7 @@
 
     - name: Download Jenkins
       dnf:
-	      name: jenkins
+	name: jenkins
         state: present
 
     - name: Start Jenkins
